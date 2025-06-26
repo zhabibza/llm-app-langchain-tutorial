@@ -1,5 +1,5 @@
 # llm-app-langchain-tutorial
-Sends a request to GROQ API and sends its response to console. (max token size
+Sends a request to GROQ API and sends its response to console.
 
 Invokes an initial request to GROQ_API then uses that information to generate a second response.
 In this case the system is initially requested to "Choose an ancient philosopher. Respond only with their name" and then to "Who is {the philosopher} in short?".
