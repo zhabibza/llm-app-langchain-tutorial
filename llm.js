@@ -14,19 +14,15 @@ const model = new ChatGroq({
   temperature: 0.7,
 })
 
-// Example of invoking the model with a system and human message
-// Import necessary classes from LangChain.js
-import { HumanMessage, SystemMessage } from "@langchain/core/messages";
-
-// Define the messages to send to the model
-// The SystemMessage sets the context for the model, and the HumanMessage is the user's input
-const messages = [
-  new SystemMessage("Respond as if you were Leanardo da Vinci"),
-  new HumanMessage("Write a poem about AI"),
-];
-
 // Invoke the model with the defined messages
-const response = await model.invoke(messages);
+const response0 = await model.invoke("Choose an ancient philosopher. Respond only with their name");
 
 // Log the response content to the console
-console.log(response.content);
+console.log(response0.content);
+
+// Use the response from the first invocation to ask a follow-up question
+// This will use the content of response0 as part of the next question
+const response1 = await model.invoke("Who is" + response0.content + " in short?");
+
+// Log the content of the second response to the console
+console.log(response1.content);
